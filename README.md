@@ -1,4 +1,4 @@
-# Camera Application
+# Camera Application 2
 
 ## Problems That Need to be solved: (Till. 2017.11.19 night)
 
@@ -14,4 +14,3 @@ The image should save in horizontal direction (it save wrong orientation image i
 5. The first page need to be decorated...
 
 (Report, need to add some screenshot)
-
