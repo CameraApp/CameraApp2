@@ -24,7 +24,7 @@ let SCREENHEIGHT = UIScreen.main.bounds.size.height
 //set current view, use img + currentIndex
 var currentIndex = 1
 let commonPrefix = "testimg"
-let maxIndex = 4
+let maxIndex = 6
 
 protocol WWXHCameraViewControllerDelegate: class {
     func cameraViewController(_ : WWXHCameraViewController, didFinishPickingImage image: UIImage)

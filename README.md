@@ -8,9 +8,9 @@
 
 ### Problems that need to be solved:
 
-1. Change card image into correct format
+1. ~~Change card image into correct format~~ (Done in 11.30 16:07)
 
-2. Add all line tutorial into the camera.
+2. ~~Add all line tutorial into the camera. ~~ (Done in 11.30 16:07)
 
 ## Problems That Need to be solved: (Till. 2017.11.19 night)
 
