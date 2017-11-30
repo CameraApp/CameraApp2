@@ -132,7 +132,7 @@
 				TargetAttributes = {
 					FC6ECE0A1ED98618007B4874 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = H78RY4M2AA;
+						DevelopmentTeam = 864XSL2U7M;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -299,7 +299,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H78RY4M2AA;
+				DEVELOPMENT_TEAM = 864XSL2U7M;
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -315,7 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = H78RY4M2AA;
+				DEVELOPMENT_TEAM = 864XSL2U7M;
 				INFOPLIST_FILE = CameraApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

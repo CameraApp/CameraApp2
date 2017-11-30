@@ -22,6 +22,19 @@ class ViewController: UIViewController,WWXHCameraViewControllerDelegate {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.view.backgroundColor=UIColor(red: 46, green: 41, blue: 61, alpha: 1)
+        EnterButton.setImage(UIImage(named:"icon4.png"),for:[])
+        let draggableBackground = TinderViewBackGround(frame: view.frame)
+        view.addSubview(draggableBackground)
+        view.addSubview(EnterButton)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -29,6 +42,10 @@ class ViewController: UIViewController,WWXHCameraViewControllerDelegate {
     
     func cameraViewController(_: WWXHCameraViewController, didFinishPickingImage image: UIImage) {
         
+    }
+    
+    func goBack() {
+        self.dismiss(animated: true, completion:nil)
     }
     
 }

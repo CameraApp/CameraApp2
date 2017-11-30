@@ -65,7 +65,9 @@ class TinderCard: UIView {
         count=count+1
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.beingDragged))
         addGestureRecognizer(panGestureRecognizer)
-        
+        if (count==5) {
+            count = 0
+        }
     }
     
     @objc func beingDragged(_ gestureRecognizer: UIPanGestureRecognizer) {

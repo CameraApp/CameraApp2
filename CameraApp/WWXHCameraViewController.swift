@@ -266,21 +266,72 @@ class WWXHCameraViewController: UIViewController {
                 if let tempImage = UIImage(data: jpegData, scale: 1) {
                     if let tempCgImage = tempImage.cgImage {
                         let image = UIImage(cgImage: tempCgImage, scale:0.1, orientation: UIImageOrientation.right)
-                        //calling functions at "viewController.swft", letting view Controller to do some extra operations.
                         self.delegate?.cameraViewController(self, didFinishPickingImage: image)
-                        
                         print("拍照完成")
                         let selector = #selector(WWXHCameraViewController.onCompleteCapture(image:error:contextInfo:))
-                        UIImageWriteToSavedPhotosAlbum(image, self, selector, nil)
-                        
+                        let correctImg = self.fixOrientation(img: image)
+                        UIImageWriteToSavedPhotosAlbum(correctImg, self, selector, nil)
                         //Jump back to the First Page
                         //self.dismiss(animated: true, completion: nil)
-                        self.setCoverImage(image:image,index:-1)
+                        //self.setCoverImage(image:correctImg,index:-1)
+                        
+                        //--Test showing the result image.
+                        //                        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: correctImg.size.width, height: correctImg.size.height))
+                        //                        imageView.image = #imageLiteral(resourceName: "icon4.png")
+                        //                        self.view.addSubview(imageView)
+                        
+                        //-----------------View the result----------------
+                        let fullSize = UIScreen.main.bounds.size
+                        let myLabel = UILabel(frame: CGRect(x:0,y:0,width:fullSize.width,height:40))
+                        myLabel.center = CGPoint(x:fullSize.width*0.5,y:fullSize.height*0.08)
+                        myLabel.textAlignment = .center
+                        myLabel.text = "Image:"
+                        myLabel.textColor = UIColor.white
+                        self.view.addSubview(myLabel)
+                        //----------------Show the result image------------
+                        let myImageView = UIImageView(frame:CGRect(x: 0,y: 0, width: fullSize.width, height:fullSize.height))
+                        myImageView.image = correctImg
+                        myImageView.center = CGPoint(
+                            x: fullSize.width*0.5 ,
+                            y: fullSize.height*0.5
+                        )
+                        self.view.addSubview(myImageView)
+                        
+                        //-------------------Add Return Button---------------
+                        let myButton = UIButton(frame: CGRect(x: 20, y: 60, width: 100, height: 50))
+                        myButton.setTitle("Return", for: .normal)
+                        myButton.backgroundColor = UIColor.black
+                        //takePhotoBtn.addTarget(self, action: #selector(takePhoto), for: UIControlEvents.touchUpInside)
+                        myButton.addTarget(self, action: #selector(ViewController.goBack),for: .touchUpInside)
+                        myButton.center = CGPoint(
+                            x: fullSize.width * 0.5, y: fullSize.height * 0.8)
+                        self.view.addSubview(myButton)
                     }
                     
                 }
             }
         }
+    }
+    
+    
+    func goBack() {
+        self.dismiss(animated: true, completion:nil)
+    }
+    
+    //Try to fix the orientation of the saving image
+    func fixOrientation(img: UIImage) -> UIImage {
+        if (img.imageOrientation == .up) {
+            return img
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(img.size, false, img.scale)
+        let rect = CGRect(x: 0, y: 0, width: img.size.width, height: img.size.height)
+        img.draw(in: rect)
+        
+        let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        return normalizedImage
     }
     
     func onCompleteCapture(image: UIImage, error: NSError?, contextInfo: UnsafeRawPointer) {
