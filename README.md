@@ -1,5 +1,17 @@
 # Camera Application 2
 
+## Problems Solved (11.30):
+
+1. Can display the image that took;
+
+2. Can jump back to the initial page and loading all cards again
+
+### Problems that need to be solved:
+
+1. Change card image into correct format
+
+2. Add all line tutorial into the camera.
+
 ## Problems That Need to be solved: (Till. 2017.11.19 night)
 
 1. About saving image:
